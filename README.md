@@ -51,8 +51,8 @@ A modern, full-stack Notion-like application built with Next.js, featuring rich 
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/sanidhyy/notion-clone.git
-   cd notion-clone
+   git clone https://github.com/SanskarDewangan/DocSpace-Collaborative-Workspace-Platform.git
+   cd DocSpace-Collaborative-Workspace-Platform
    ```
 
 2. **Install dependencies**
@@ -159,25 +159,4 @@ Contributions are welcome! Please follow these steps:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Author
 
-**Sanidhya Kumar Verma**
-- Email: sanidhya.verma12345@gmail.com
-- GitHub: [@sanidhyy](https://github.com/sanidhyy)
-- LinkedIn: [Sanidhya Kumar Verma](https://www.linkedin.com/in/sanidhya-kumar-verma)
-
-## 🙏 Acknowledgments
-
-- [CodeWithAntonio](https://codewithantonio.com/) - Original tutorial inspiration
-- [BlockNote](https://www.npmjs.com/package/@blocknote/core) - Rich text editor
-- [Convex](https://convex.dev) - Real-time backend
-- [Clerk](https://clerk.dev) - Authentication
-- [shadcn/ui](https://ui.shadcn.com) - UI components
-
-## 📊 Stats
-
-[![Vercel Status](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://app-jotion.vercel.app/)
-
----
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
