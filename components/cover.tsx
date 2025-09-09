@@ -30,7 +30,7 @@ export const Cover = ({ url, preview }: CoverProps) => {
         await edgestore.publicFiles.delete({
           url,
         });
-      } catch (e) {
+      } catch {
         // Ignore deletion failures; proceed to remove reference in DB
       }
     }

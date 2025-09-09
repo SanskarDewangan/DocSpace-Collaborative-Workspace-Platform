@@ -40,7 +40,7 @@ export const archive = mutation({
       isArchived: true,
     });
 
-    recursiveArchive(args.id);
+    await recursiveArchive(args.id);
 
     return document;
   },
@@ -158,7 +158,7 @@ export const restore = mutation({
 
     const document = await ctx.db.patch(args.id, options);
 
-    recursiveRestore(args.id);
+    await recursiveRestore(args.id);
 
     return document;
   },
@@ -243,7 +243,7 @@ export const update = mutation({
 
     const { id, ...data } = args;
 
-    const existingDocument = await ctx.db.get(args.id);
+    const existingDocument = await ctx.db.get(id);
 
     if (!existingDocument) throw new Error("Not found.");
 

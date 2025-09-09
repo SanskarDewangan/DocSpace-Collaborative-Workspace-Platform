@@ -1,12 +1,12 @@
 "use client";
 
+import { memo, useState } from "react";
 import { useQuery } from "convex/react";
 import { FileIcon } from "lucide-react";
 import { useParams, useRouter } from "next/navigation";
-import { useState } from "react";
 
 import { api } from "@/convex/_generated/api";
-import type { Doc, Id } from "@/convex/_generated/dataModel";
+import type { Id } from "@/convex/_generated/dataModel";
 
 import { Item } from "./item";
 import { cn } from "@/lib/utils";
@@ -14,13 +14,11 @@ import { cn } from "@/lib/utils";
 type DocumentListProps = {
   parentDocumentId?: Id<"documents">;
   level?: number;
-  data?: Doc<"documents">[];
 };
 
-export const DocumentList = ({
+export const DocumentList = memo(({
   parentDocumentId,
   level = 0,
-  data,
 }: DocumentListProps) => {
   const params = useParams();
   const router = useRouter();
@@ -89,4 +87,4 @@ export const DocumentList = ({
       ))}
     </>
   );
-};
+});
