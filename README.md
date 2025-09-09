@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# DocSpace — Collaborative Workspace Platform
 
-## Getting Started
+A modern, real-time note-taking and document workspace built with Next.js App Router, Convex, and Clerk. Create, organize, and collaborate on documents with rich-text editing powered by BlockNote, theming, and media uploads via EdgeStore.
 
-First, run the development server:
+## Features
+- **Authentication**: Clerk-hosted auth flows and components
+- **Realtime data**: Convex functions and subscriptions
+- **Rich editor**: BlockNote editor with uploads to EdgeStore
+- **File uploads**: EdgeStore public bucket integration
+- **Dark mode**: System-aware theming with `next-themes`
+- **Command palette**: Quick actions via `cmdk`
+- **Type-safety**: End-to-end TypeScript
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Tech Stack
+- Next.js 15 (App Router)
+- React 19
+- TypeScript 5
+- Convex 1.x
+- Clerk 6.x
+- BlockNote 0.37
+- Tailwind CSS 4
+- EdgeStore 0.5
+
+## Prerequisites
+- Node.js 18+ (recommend LTS)
+- npm (or pnpm/yarn)
+
+## Environment Variables
+Create a `.env.local` in the project root:
+
+```
+# Clerk
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=pk_test_...
+CLERK_SECRET_KEY=sk_test_...
+
+# Convex
+CONVEX_DEPLOYMENT=
+CONVEX_SITE_URL=http://localhost:3000
+
+# EdgeStore
+EDGE_STORE_ACCESS_KEY=
+EDGE_STORE_SECRET_KEY=
+EDGE_STORE_BUCKET=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Notes:
+- Obtain Clerk keys from the Clerk dashboard.
+- Initialize Convex with `npx convex dev` separately if needed, and configure deployment.
+- Configure EdgeStore credentials and bucket as per your storage provider.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
+```
+npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Development
+```
+npm run dev
+```
+App runs at `http://localhost:3000`.
 
-## Learn More
+If using Convex locally, run in another terminal:
+```
+npx convex dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Build & Run
+```
+npm run build
+npm start
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Useful Scripts
+- `dev`: start Next.js in development
+- `build`: production build
+- `start`: start production server
+- `lint`: run ESLint
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Project Structure
+```
+app/                # Next.js App Router (marketing + main app)
+components/         # UI components and editor wrappers
+convex/             # Convex schema, functions, and generated API
+hooks/              # Reusable React hooks
+lib/                # Client utilities (EdgeStore client, helpers)
+public/             # Static assets
+```
 
-## Deploy on Vercel
+## Editor and Uploads
+- The editor uses BlockNote with a custom `uploadFile` handler that uploads to EdgeStore and returns a public URL.
+- Update EdgeStore configuration in `app/api/edgestore/[...edgestore]/route.ts` and `lib/edgestore.ts` as needed.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
+- Recommended: Vercel for the Next.js app.
+- Ensure environment variables are set in your hosting provider.
+- Provision Convex deployment and update `CONVEX_DEPLOYMENT`.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Troubleshooting
+- Clear Next cache: `rm -rf .next` (macOS/Linux) or delete the `.next` folder (Windows) and rebuild.
+- If dependency conflicts occur, install with `--legacy-peer-deps`.
+- For editor import errors, ensure `@blocknote/react` v0.37 and import `BlockNoteViewRaw as BlockNoteView`.
+
+## License
+MIT
