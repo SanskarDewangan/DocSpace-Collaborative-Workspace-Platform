@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const siteConfig: Metadata = {
-  title: "Jotion",
+  title: "Docspace",
   description: "The connected workspace where better, faster work happens.",
   icons: {
     icon: [

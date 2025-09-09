@@ -31,7 +31,7 @@ const RootLayout = ({ children }: PropsWithChildren) => {
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-          storageKey="jotion-theme"
+          storageKey="docspace-theme"
         >
           <ConvexClientProvider>
             <EdgeStoreProvider>

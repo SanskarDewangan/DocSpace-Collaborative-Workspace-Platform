@@ -24,7 +24,7 @@ export const UserItem = () => {
               <AvatarImage src={user?.imageUrl} />
             </Avatar>
             <span className="text-start font-medium line-clamp-1">
-              {user?.fullName}&apos;s Jotion
+              {user?.fullName}&apos;s Docspace
             </span>
           </div>
 
@@ -52,7 +52,7 @@ export const UserItem = () => {
 
             <div className="space-y-1">
               <p className="text-sm line-clamp-1">
-                {user?.fullName}&apos;s Jotion
+                {user?.fullName}&apos;s Docspace
               </p>
             </div>
           </div>
